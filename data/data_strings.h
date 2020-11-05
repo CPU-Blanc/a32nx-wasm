@@ -216,7 +216,32 @@ const PCSTRINGZ pcstring_lSimVars[totalRealLVarsCount][2] = {
         {"XMLVAR_KNOB_OVHD_CABINPRESS_LDGELEV","Percent"},
         {"A32NX_CAB_PRESS_MODE_MAN", "Bool"},
         {"A32NX_MAN_VS_CONTROL","Enum"},
-        {"A32NX_DITCHING", "Bool"}
+        {"A32NX_DITCHING", "Bool"},
+        //============================HYDRAULICS===========================
+        {"A32NX_HYD_GREEN_PRESSURE","PSI"},
+        {"A32NX_HYD_GREEN_RES_VOL","Enum"},
+        {"A32NX_HYD_BLUE_PRESSURE","PSI"},
+        {"A32NX_HYD_BLUE_RES_VOL","Enum"},
+        {"A32NX_HYD_BLUE_PUMP_ACTIVE","Bool"},
+        {"A32NX_HYD_YELLOW_PRESSURE","PSI"},
+        {"A32NX_HYD_YELLOW_RES_VOL","Enum"},
+        {"A32NX_HYD_YELLOW_PUMP_ACTIVE","Bool"},
+        {"A32NX_PTU_STATE","Enum"},
+        {"A32NX_HYD_PTU_TOGGLE","Bool"},
+        {"A32NX_HYD_ENG1PUMP_TOGGLE","Bool"},
+        {"A32NX_HYD_ENG2PUMP_TOGGLE","Bool"},
+        {"A32NX_HYD_ELECPUMP_TOGGLE","Bool"},
+        {"A32NX_HYD_ELECPUMPY_TOGGLE","Bool"},
+        {"A32NX_HYD_PTU_FAULT","Bool"},
+        {"A32NX_HYD_ENG1PUMP_FAULT","Bool"},
+        {"A32NX_HYD_ENG2PUMP_FAULT","Bool"},
+        {"A32NX_HYD_ELECPUMP_FAULT","Bool"},
+        {"A32NX_HYD_ELECPUMPY_FAULT","Bool"},
+        {"A32NX_HYD_PTU_FAULT_CODE","Enum"},
+        {"A32NX_HYD_ENG1PUMP_FAULT_CODE","Enum"},
+        {"A32NX_HYD_ENG2PUMP_FAULT_CODE","Enum"},
+        {"A32NX_HYD_ELECPUMP_FAULT_CODE","Enum"},
+        {"A32NX_HYD_ELECPUMPY_FAULT_CODE","Enum"},
 };
 
 #endif // !DATASTRINGS

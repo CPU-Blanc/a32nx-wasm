@@ -58,7 +58,9 @@ enum aSimVars {
     CATER_DOOR,             //INTERACTIVE POINT OPEN:3, percent
     FWD_CARGO,              //INTERACTIVE POINT OPEN:5, percent
     DEST_ALT,               //C:fs9gps:FlightPlanDestinationAltitude, Feet
-    
+    BRAKE_PARKING_POSITION, //(A:BRAKE PARKING POSITION, Bool)
+    ENG1_MAX_RPM_PCT,       //(A:GENERAL ENG PCT MAX RPM:1, Percent over 100)
+    ENG2_MAX_RPM_PCT,       //(A:GENERAL ENG PCT MAX RPM:2, Percent over 100)
     aSimVarsCount
 };
 
@@ -359,6 +361,50 @@ enum lSimVars {
     MAN_VS_CTRL,            //L:A32NX_MAN_VS_CONTROL            up = 0, off = 1, dn = 2
     DITCH,                  //L:A32NX_DITCHING, Bool    
     
+/*============================================================================*/
+/*                                 HYDRAULICS                                 */
+/*============================================================================*/
+
+    GREEN_PRESSURE,         //L:A32NX_HYD_GREEN_PRESSURE, PSI
+    GREEN_RES_VOLUME,       //L:A32NX_HYD_GREEN_RES_VOL, Enum
+    BLUE_PRESSURE,          //L:A32NX_HYD_BLUE_PRESSURE, PSI
+    BLUE_RES_VOLUME,        //L:A32NX_HYD_BLUE_RES_VOL, Enum
+    BLUE_PUMP_ACTIVE,       //L:A32NX_HYD_BLUE_PUMP_ACTIVE, Bool
+    YELLOW_PRESSURE,        //L:A32NX_HYD_YELLOW_PRESSURE, PSI
+    YELLOW_RES_VOLUME,      //L:A32NX_HYD_YELLOW_RES_VOL, Enum
+    YELLOW_PUMP_ACTIVE,     //L:A32NX_HYD_YELLOW_PUMP_ACTIVE, Bool
+    PTU_STATE,              //L:A32NX_PTU_STATE, Enum        0 = Off     1 = Green <- Yellow     2 = Green -> Yellow
+
+
+    /*
+    * ========== *
+    * XML L VARS *
+    * ========== *
+    */
+
+    PTU_ARM,                //L:A32NX_HYD_PTU_TOGGLE, Bool
+    EDP1_SWITCH,            //L:A32NX_HYD_ENG1PUMP_TOGGLE, Bool
+    EDP2_SWITCH,            //L:A32NX_HYD_ENG2PUMP_TOGGLE, Bool
+    BLUE_PUMP_SWITCH,       //L:A32NX_HYD_ELECPUMP_TOGGLE, Bool
+    YELLOW_PUMP_SWITCH,     //L:A32NX_HYD_ELECPUMPY_TOGGLE, Bool
+
+    /*
+    * ================= *
+    * ERRORS / FAILURES *
+    * ================= *
+    */
+
+    PTU_ERROR,              //L:A32NX_HYD_PTU_FAULT, Bool
+    EDP1_ERROR,             //L:A32NX_HYD_ENG1PUMP_FAULT, Bool       
+    EDP2_ERROR,             //L:A32NX_HYD_ENG2PUMP_FAULT, Bool       
+    BLUE_PUMP_ERROR,        //L:A32NX_HYD_ELECPUMP_FAULT, Bool      
+    YELLOW_PUMP_ERROR,      //L:A32NX_HYD_ELECPUMPY_FAULT, Bool
+    PTU_ERROR_CODE,         //L:A32NX_HYD_PTU_FAULT_CODE, Enum          BITWISE FLAGS   0 = No errors   1 = Failed
+    EDP1_ERROR_CODE,        //L:A32NX_HYD_ENG1PUMP_FAULT_CODE, Enum     BITWISE FLAGS   0 = No errors   1 = Low System Pressure     2 = Res Low Air Pressure     4 = Res Overheat       8 = Res Low     16 = Low output pressure
+    EDP2_ERROR_CODE,        //L:A32NX_HYD_ENG2PUMP_FAULT_CODE, Enum     BITWISE FLAGS   0 = No errors   1 = Low System Pressure     2 = Res Low Air Pressure     4 = Res Overheat       8 = Res Low     16 = Low output pressure
+    BLUE_PUMP_ERROR_CODE,   //L:A32NX_HYD_ELECPUMP_FAULT_CODE, Enum     BITWISE FLAGS   0 = No errors   1 = Low System Pressure     2 = Res Low Air Pressure     4 = Res Overheat       8 = Res Low     16 = Low output pressure    32 = Pump Overheat 
+    YELLOW_PUMP_ERROR_CODE, //L:A32NX_HYD_ELECPUMPY_FAULT_CODE, Enum    BITWISE FLAGS   0 = No errors   1 = Low System Pressure     2 = Res Low Air Pressure     4 = Res Overheat       8 = Res Low     16 = Low output pressure    32 = Pump Overheat 
+
     /*
     =========================================================================
     * ===================================================================== *
@@ -377,6 +423,15 @@ enum lSimVars {
     APU_BLEED_TOGGLE_OFF,      //Bool, used for APU cool and shutdown procedure
     LANDED,                    //set to 1 on touchdown and 0 when in air
     FLIGHT_PHASE,              //has current flight state from flightPhase()
+    GREEN_FLOW,             //Enum, loop flow rate this tick in US gallons
+    GREEN_VOLUME,           //Enum, loop pipe volume in US gallons
+    GREEN_LOAD,             //Enum, WIP - load in volume extension/required per tick
+    BLUE_FLOW,              //Enum, loop flow rate this tick in US gallons
+    BLUE_VOLUME,            //Enum, loop pipe volume in US gallons
+    BLUE_LOAD,              //Enum, WIP - load in volume extension/required per tick
+    YELLOW_FLOW,            //Enum, loop flow rate this tick in US gallons
+    YELLOW_VOLUME,          //Enum, loop pipe volume in US gallons
+    YELLOW_LOAD,            //Enum, WIP - load in volume extension/required per tick
 
     totalLVarsCount
 };

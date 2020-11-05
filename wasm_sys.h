@@ -19,6 +19,7 @@
 #include "systems/bleed_sys.h"
 #include "systems/press_sys.h"
 #include "systems/eng_sys.h"
+#include "systems/hyd_sys.h"
 
 
 class WasmSys {
@@ -28,6 +29,7 @@ private:
     BleedSys BLEED_SYSTEM;
     PressSys PRESS_SYSTEM;
     EngSys ENG_SYSTEM;
+    HydSys HYD_SYSTEM;
 public:
     void init() {
         srand(time(nullptr));
@@ -39,6 +41,7 @@ public:
         BLEED_SYSTEM.init();
         PRESS_SYSTEM.init();
         ENG_SYSTEM.init();
+        HYD_SYSTEM.init();
         updateSetLSimVars();
     }
     void update(double const currentAbsTime) {
@@ -52,7 +55,7 @@ public:
         BLEED_SYSTEM.update(currentAbsTime);
         PRESS_SYSTEM.update(currentAbsTime);
         ENG_SYSTEM.update(currentAbsTime);
-
+        HYD_SYSTEM.update(currentAbsTime);
         updateSetLSimVars();
 
         lastAbsTime = currentAbsTime;
