@@ -61,7 +61,10 @@ const PCSTRINGZ pcstring_aSimVars[aSimVarsCount] = {
     "(A:INTERACTIVE POINT OPEN:0, Percent)",
     "(A:INTERACTIVE POINT OPEN:3, Percent)",
     "(A:INTERACTIVE POINT OPEN:5, Percent)",
-    "(C:fs9gps:FlightPlanDestinationAltitude, Feet)"
+    "(C:fs9gps:FlightPlanDestinationAltitude, Feet)",
+    "(A:BRAKE PARKING POSITION, Bool)",
+    "(A:GENERAL ENG PCT MAX RPM:1, Percent over 100)",
+    "(A:GENERAL ENG PCT MAX RPM:2, Percent over 100)"
 };
 
 const PCSTRINGZ pcstring_lSimVars[totalRealLVarsCount][2] = {
